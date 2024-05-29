@@ -1,0 +1,24 @@
+{
+  "name": "gabichat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gabimania/gabichat.git"
+  },
+  "author": "sogadri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gabimania/gabichat/issues"
+  },
+  "homepage": "https://github.com/Gabimania/gabichat#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mysql": "^2.18.1",
+    "socket.io": "^4.7.5"
+  }
+}
