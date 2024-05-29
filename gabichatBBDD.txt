@@ -1,0 +1,133 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema gabichat
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema gabichat
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `gabichat` DEFAULT CHARACTER SET utf8 ;
+USE `gabichat` ;
+
+-- -----------------------------------------------------
+-- Table `gabichat`.`user`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gabichat`.`user` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NULL,
+  `password` VARCHAR(255) NULL,
+  `profile_picture` VARCHAR(255) NULL,
+  `status` VARCHAR(45) NULL,
+  `last_seen` DATETIME NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `gabichat`.`chat`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gabichat`.`chat` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `type` VARCHAR(45) NULL,
+  `created_at` DATETIME NULL DEFAULT now(),
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `gabichat`.`message`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gabichat`.`message` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `content` VARCHAR(255) NULL,
+  `sent_at` DATETIME NULL,
+  `sender_id` INT NOT NULL,
+  `chat_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_message_user1_idx` (`sender_id` ASC) VISIBLE,
+  INDEX `fk_message_chat1_idx` (`chat_id` ASC) VISIBLE,
+  CONSTRAINT `fk_message_user1`
+    FOREIGN KEY (`sender_id`)
+    REFERENCES `gabichat`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_message_chat1`
+    FOREIGN KEY (`chat_id`)
+    REFERENCES `gabichat`.`chat` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `gabichat`.`group`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gabichat`.`group` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  `created_at` DATETIME NULL DEFAULT now(),
+  `admin` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_group_user1_idx` (`admin` ASC) VISIBLE,
+  CONSTRAINT `fk_group_user1`
+    FOREIGN KEY (`admin`)
+    REFERENCES `gabichat`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `gabichat`.`chat_participant`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gabichat`.`chat_participant` (
+  `chat_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
+  PRIMARY KEY (`chat_id`, `user_id`),
+  INDEX `fk_chat_has_user_user1_idx` (`user_id` ASC) VISIBLE,
+  INDEX `fk_chat_has_user_chat_idx` (`chat_id` ASC) VISIBLE,
+  CONSTRAINT `fk_chat_has_user_chat`
+    FOREIGN KEY (`chat_id`)
+    REFERENCES `gabichat`.`chat` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_chat_has_user_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `gabichat`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `gabichat`.`group_participants`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gabichat`.`group_participants` (
+  `group_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
+  `joined_at` DATETIME NULL DEFAULT now(),
+  PRIMARY KEY (`group_id`, `user_id`),
+  INDEX `fk_group_has_user_user1_idx` (`user_id` ASC) VISIBLE,
+  INDEX `fk_group_has_user_group1_idx` (`group_id` ASC) VISIBLE,
+  CONSTRAINT `fk_group_has_user_group1`
+    FOREIGN KEY (`group_id`)
+    REFERENCES `gabichat`.`group` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_group_has_user_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `gabichat`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
