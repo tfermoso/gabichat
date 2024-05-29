@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <!-- Logo a la izquierda -->
+        <a class="navbar-brand" href="#"><img class="logo" src="img/logo.png" alt="" srcset=""></a>
+
+        <!-- Nombre del usuario y dropdown -->
+        <div class="d-flex">
+            <% if (user) { %>
+                <div class="dropdown me-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <%= user.name %> <!-- Nombre del usuario -->
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <!-- Opciones del dropdown -->
+                        <li><a class="dropdown-item" href="#">Disponible</a></li>
+                        <li><a class="dropdown-item" href="#">Ocupado</a></li>
+                        <li><a class="dropdown-item" href="#">Ausente</a></li>
+                    </ul>
+                </div>
+            <% } %>
+
+            <!-- Botón de logout -->
+            <a href="/login" class="btn btn-outline-danger">
+                <i class="fas fa-sign-out-alt me-1"></i> <!-- Icono de logout de Font Awesome -->
+                Logout
+            </a>
+        </div>
+    </div>
+</nav>
