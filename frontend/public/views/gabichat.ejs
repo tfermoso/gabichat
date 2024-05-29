@@ -1,36 +1,54 @@
-<!-- Incluir el contenido d<%- include('navbar.ejs') %>el nav -->
-
-<%- include('./navbar') %>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Chat -->
-            <div class="col-md-6">
-                <div class="chat-container">
-                    <!-- Contenido del chat (inputs, botones, etc.) -->
-                </div>
-            </div>
-            <!-- Usuarios -->
-            <div class="col-md-3">
-                <div class="users-container">
-                    <!-- Lista de usuarios -->
-                </div>
-            </div>
-            <!-- Grupos -->
-            <div class="col-md-3">
-                <div class="groups-container">
-                    <!-- Lista de grupos -->
-                    <h2>Grupos</h2>
-                    <!-- Botón para crear grupo -->
-                    <button class="btn btn-primary">Crear Grupo</button>
-                    <!-- Lista de grupos -->
+<%- include('./navbar.ejs') %>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Chat -->
+        <div class="col-md-6">
+            <div class="chat-container">
+                <h2>Chat de Usuarios</h2>
+                <div style="border: 1px solid black; border-radius: 10px; padding: 10px;">
+                    <!-- Lista de mensajes del chat -->
+                    <div class="message-list">
+                        <!-- Aquí se mostrarán los mensajes del chat -->
+                    </div>
+                    <!-- Input para enviar mensajes -->
+                    <div class="input-group mt-3">
+                        <input type="text" class="form-control" placeholder="Escribe tu mensaje aquí" aria-label="Escribe tu mensaje aquí" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Enviar</button>
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- Usuarios -->
+        <div class="col-md-3">
+            <div class="users-container">
+                <h2>Usuarios Conectados</h2>
+                <!-- Lista ficticia de usuarios -->
+                <ul>
+                    <li>Usuario 1</li>
+                    <li>Usuario 2</li>
+                    <li>Usuario 3</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Grupos -->
+        <div class="col-md-3">
+            <div class="groups-container">
+                <h2>Grupos</h2>
+                <button class="btn btn-primary">Crear Grupo</button>
+                <!-- Lista ficticia de grupos -->
+                <ul>
+                    <li>Grupo 1</li>
+                    <li>Grupo 2</li>
+                    <li>Grupo 3</li>
+                </ul>
+            </div>
+        </div>
     </div>
+</div>
 
-    <!-- Scripts opcionales de Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-afZRd1iNXm47F4xncsc5xlMcK7Ay+zAMFmLZyfc8v8NTmH/4h+2h+YGg2ywwuBgC" crossorigin="anonymous"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="js/index.js"></script>
+<!-- Scripts opcionales de Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-afZRd1iNXm47F4xncsc5xlMcK7Ay+zAMFmLZyfc8v8NTmH/4h+2h+YGg2ywwuBgC" crossorigin="anonymous"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>

@@ -48,7 +48,7 @@ app.post("/login", async (req, res) => {
 
 app.get("/register", (req, res) => {
     let error = "";
-    res.render("register", { error });
+    res.sendFile(path.join(__dirname, '../frontend/public/register.html'));
 })
 
 app.post("/register", async (req, res) => {
