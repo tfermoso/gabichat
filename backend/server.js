@@ -1,5 +1,5 @@
 const sequelize = require("./config/database");
-const User = require("./models/User");
+const{User, Chat, Group, Messsage, Group_participant}= require("./models/Associations");
 
 (async () => {
   try {
@@ -7,7 +7,7 @@ const User = require("./models/User");
 
 
     // Sincronizar el modelo
-    await User.sync();
+    await sequelize.sync();
 
     // Crear un nuevo usuario
     const newUser = await User.create({
