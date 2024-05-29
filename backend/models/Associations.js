@@ -23,3 +23,11 @@ User.belongsToMany(Group, {
 });
 Chat.belongsToMany(User, { through: "chat_participant" });
 User.belongsToMany(Chat, { through: "chat_participant" });
+
+module.exports = {
+  User,
+  Chat,
+  Group,
+  Message,
+  Group_participant,
+};
