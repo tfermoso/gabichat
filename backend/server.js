@@ -3,7 +3,8 @@ const User = require("./models/User");
 
 (async () => {
   try {
-    
+    // Asegurarte de que la conexión esté establecida
+
 
     // Sincronizar el modelo
     await User.sync();
