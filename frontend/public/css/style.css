@@ -119,13 +119,12 @@ body {
     margin-right: -10px; /* Ajuste del margen */
 }
 
-
-
 .groups-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+/*esto es para mover la palabra grupos*/
 .groups-header h2{
     margin-left: 160px;
 }
