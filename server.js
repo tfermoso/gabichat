@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use('/uploads', express.static('uploads'));
-app.use(session({
+const session_middleware = (session({
   secret: 'supersecreto',
   store: new SequelizeStore({
     db: sequelize,
@@ -30,6 +30,7 @@ app.use(session({
     maxAge: 1000 * 60 * 60 * 24
   }
 }));
+app.use(session_middleware);
 app.use(routes);
 app.use(protectedRoutes);
 
@@ -39,6 +40,10 @@ app.set('views', path.join(__dirname, './views'));
 (async () => {
   await sequelize.sync();
 })();
+
+io.use((socket,next)=>{
+  session_middleware(socket.request,socket.request.next||{},next);
+});
 
 socketController(io);
 
