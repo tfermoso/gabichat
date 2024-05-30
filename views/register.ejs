@@ -15,9 +15,11 @@
         <div class="card p-4" style="width: 20rem;">
             <h3 class="card-title text-center">Register</h3>
 
-            <div class="alert alert-danger" role="alert">
-
-            </div>
+            <% if (error) { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                </div>
+            <% } %>
 
             <form action="" method="post">
                 <div class="mb-3">
