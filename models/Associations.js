@@ -17,10 +17,12 @@ Group.belongsToMany(User, {
   through: Group_participant,
   foreignKey: "group_id",
 });
+
 User.belongsToMany(Group, {
   through: Group_participant,
   foreignKey: "user_id",
 });
+
 Chat.belongsToMany(User, { through: "chat_participant" });
 User.belongsToMany(Chat, { through: "chat_participant" });
 

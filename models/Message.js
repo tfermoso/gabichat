@@ -31,7 +31,7 @@ const Message = sequelize.define(
     },
   },
   {
-    tableName: "group",
+    tableName: "message",
     timestamps: false,
   }
 );

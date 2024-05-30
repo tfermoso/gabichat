@@ -8,6 +8,7 @@ const sequelize = require("./config/database");
 const routes = require('./routes/routes');
 const protectedRoutes = require('./routes/protectedRoutes');
 const socketController = require('./controllers/socketController');
+const upload = require('./config/multer');
 
 const app = express();
 const server = http.createServer(app);
@@ -17,7 +18,8 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
-app.use(session({
+app.use('/uploads', express.static('uploads'));
+const session_middleware = (session({
   secret: 'supersecreto',
   store: new SequelizeStore({
     db: sequelize,
@@ -28,6 +30,7 @@ app.use(session({
     maxAge: 1000 * 60 * 60 * 24
   }
 }));
+app.use(session_middleware);
 app.use(routes);
 app.use(protectedRoutes);
 
@@ -37,6 +40,10 @@ app.set('views', path.join(__dirname, './views'));
 (async () => {
   await sequelize.sync();
 })();
+
+io.use((socket,next)=>{
+  session_middleware(socket.request,socket.request.next||{},next);
+});
 
 socketController(io);
 
