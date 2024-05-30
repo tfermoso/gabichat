@@ -50,6 +50,10 @@ app.get("/register", (req, res) => {
     let error = "";
     res.sendFile(path.join(__dirname, '../frontend/public/register.html'));
 })
+app.get("/gabichat", (req, res) => {
+    let error = "";
+    res.render("gabichat");
+})
 
 app.post("/register", async (req, res) => {
     const { name, email, password } = req.body;

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entra a GabiChat</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #2C2C2C; /* Color de fondo */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border: 1px solid #999; /* Borde delgado */
+            border-radius: 5px; /* Borde redondeado */
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semiopaco */
+            text-align: center;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1; /* Asegura que esté encima del overlay */
+            padding: 70px;
+        }
+
+        .logo {
+            width: 100px; /* Tamaño del logo */
+        }
+
+        h1 {
+            font-family: Arial, sans-serif; /* Fuente */
+            font-size: 24px; /* Tamaño del texto */
+            color: white; /* Color del texto */
+            margin-top: 20px; /* Espacio superior */
+        }
+
+        .enter-btn {
+            font-family: Arial, sans-serif; /* Fuente */
+            font-size: 18px; /* Tamaño del texto */
+            background-color: #0088cc; /* Color de fondo del botón */
+            color: white; /* Color del texto */
+            border: none; /* Quitamos el borde */
+            border-radius: 5px; /* Borde redondeado */
+            padding: 10px 20px; /* Espaciado interno */
+            margin-top: 20px; /* Espacio superior */
+            cursor: pointer; /* Cursor al pasar sobre el botón */
+            transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+        }
+
+        .enter-btn:hover {
+            background-color: #0077b6; /* Color de fondo del botón al pasar el cursor */
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="container">
+            <img src="img/chat.png" alt="GabiChat Logo" class="logo">
+            <h1>Entra a GabiChat</h1>
+            <a href="/gabichat"><button class="enter-btn">Entrar</button></a>
+        </div>
+    </div>
+</body>
+</html>
