@@ -1,4 +1,4 @@
 
 exports.getGabichat = (req, res) => {
-    res.render("gabichat");
+    res.render("gabichat", { profilePicUrl: 'uploads/default.jpg' });
   };

@@ -35,7 +35,7 @@ exports.postRegister = async (req, res) => {
   const { username, email, password } = req.body;
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
-    await User.create({ username, email, password: hashedPassword });
+    await User.create({ username, email, password: hashedPassword, status: 'Disponible', profile_picture: 'default.jpg' });
     res.redirect("/login");
   } catch (error) {
     res.render("register", { error: "Error de conexión a BBDD" });

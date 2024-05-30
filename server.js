@@ -8,6 +8,7 @@ const sequelize = require("./config/database");
 const routes = require('./routes/routes');
 const protectedRoutes = require('./routes/protectedRoutes');
 const socketController = require('./controllers/socketController');
+const upload = require('./config/multer');
 
 const app = express();
 const server = http.createServer(app);
@@ -17,6 +18,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+app.use('/uploads', express.static('uploads'));
 app.use(session({
   secret: 'supersecreto',
   store: new SequelizeStore({
