@@ -1,47 +1,82 @@
 <%- include('./navbar.ejs') %>
-<div class="container-fluid">
-    <div class="row">
-        <!-- Chat -->
-        <div class="col-md-6">
-            <div class="chat-container">
-                <h2>Chat de Usuarios</h2>
-                <div style="border: 1px solid blue; border-radius: 10px; padding: 300px; position: relative;">
-                    <!-- Lista de mensajes del chat -->
-                    <div class="message-list">
-                        <!-- Aquí se mostrarán los mensajes del chat -->
-                    </div>
-                    <div class="input-group mt-3" style="position: absolute; bottom: 10px; left: 2px; right: 2px;">
-                        <input type="text" class="form-control" placeholder="Escribe tu mensaje aquí" aria-label="Escribe tu mensaje aquí" aria-describedby="button-addon2" style="width: 150px;">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Enviar</button>
-                    </div>
-                    
-                    
+<div class="container">
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Nombre del Contacto</h2>
+        </div>
+        <div class="chat-messages">
+            <div class="message sent">
+                <p>Hola, ¿cómo estás?</p>
+                <span class="time">10:30 AM</span>
+            </div>
+            <div class="message received">
+                <p>¡Hola! Estoy bien, ¿y tú?</p>
+                <span class="time">10:32 AM</span>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Escribe un mensaje...">
+            <button>Enviar</button>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div class="contacts-container">
+            <div class="contacts-header">
+                <h2>Contactos</h2>
+            </div>
+            <div class="contact">
+                <div class="avatar">A</div>
+                <div class="contact-info">
+                    <h3>Antonio García</h3>
+                    <p>Hola, ¿cómo estás?</p>
                 </div>
+                <div class="contact-time">10:30 AM</div>
+            </div>
+            <div class="contact">
+                <div class="avatar">B</div>
+                <div class="contact-info">
+                    <h3>Beatriz López</h3>
+                    <p>¡Hola! Estoy bien, ¿y tú?</p>
+                </div>
+                <div class="contact-time">10:32 AM</div>
+            </div>
+            <div class="contact">
+                <div class="avatar">C</div>
+                <div class="contact-info">
+                    <h3>Carlos Pérez</h3>
+                    <p>Nos vemos mañana</p>
+                </div>
+                <div class="contact-time">9:15 AM</div>
             </div>
         </div>
-        <!-- Usuarios -->
-        <div class="col-md-3">
-            <div class="users-container">
-                <h2>Usuarios Conectados</h2>
-                <!-- Lista ficticia de usuarios -->
-                <ul>
-                    <li>Usuario 1</li>
-                    <li>Usuario 2</li>
-                    <li>Usuario 3</li>
-                </ul>
-            </div>
-        </div>
-        <!-- Grupos -->
-        <div class="col-md-3">
-            <div class="groups-container">
+        <div class="groups-container">
+            <div class="groups-header">
                 <h2>Grupos</h2>
-                <button class="btn btn-primary">Crear Grupo</button>
-                <!-- Lista ficticia de grupos -->
-                <ul>
-                    <li>Grupo 1</li>
-                    <li>Grupo 2</li>
-                    <li>Grupo 3</li>
-                </ul>
+                <button class="add-group">+</button>
+            </div>
+            <div class="group">
+                <div class="avatar">G</div>
+                <div class="group-info">
+                    <h3>Gabrimaniacos</h3>
+                    <p>Último mensaje del grupo...</p>
+                </div>
+                <div class="group-time">10:30 AM</div>
+            </div>
+            <div class="group">
+                <div class="avatar">T</div>
+                <div class="group-info">
+                    <h3>Tech Enthusiasts</h3>
+                    <p>Reunión mañana a las 9 AM...</p>
+                </div>
+                <div class="group-time">10:32 AM</div>
+            </div>
+            <div class="group">
+                <div class="avatar">F</div>
+                <div class="group-info">
+                    <h3>Familia</h3>
+                    <p>Nos vemos en la cena...</p>
+                </div>
+                <div class="group-time">9:15 AM</div>
             </div>
         </div>
     </div>
