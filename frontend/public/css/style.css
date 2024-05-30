@@ -297,3 +297,12 @@ body {
     margin-top: 3px; /* Ajuste del ícono para centrarlo verticalmente */
 }
 
+.chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
