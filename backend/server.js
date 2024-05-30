@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
     //res.sendFile(path.join(__dirname, 'public', 'login.html'));
     res.render('gabichat');
 })
-
+//login
 app.get('/login', (req, res) => {
     // Puedes enviar la página de login directamente si está en la carpeta de vistas
     res.sendFile(path.join(__dirname, '../frontend/public/login.html'));
@@ -45,14 +45,15 @@ app.post("/login", async (req, res) => {
     }
 
 })
-
-app.get("/register", (req, res) => {
-    let error = "";
-    res.sendFile(path.join(__dirname, '../frontend/public/register.html'));
-})
+// gabichat
 app.get("/gabichat", (req, res) => {
     let error = "";
     res.render("gabichat");
+})
+//register
+app.get("/register", (req, res) => {
+    let error = "";
+    res.sendFile(path.join(__dirname, '../frontend/public/register.html'));
 })
 
 app.post("/register", async (req, res) => {
