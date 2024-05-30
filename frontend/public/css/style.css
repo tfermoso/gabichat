@@ -126,6 +126,9 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+.groups-header h2{
+    margin-left: 160px;
+}
 
 .add-group {
     background-color: #023955;
