@@ -31,12 +31,13 @@ body {
     position: relative;
     display: inline-block;
 }
-
+/*donde pone el nombre del usuario*/
 .dropbtn {
     background-color: #0088cc;
     color: white;
     border: none;
     cursor: pointer;
+    margin-right: 20px;
 }
 
 .dropdown-content {
@@ -62,14 +63,14 @@ body {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
+/* btn de cerrar*/
 .logout-btn {
     background-color: transparent;
     color: white;
     border: none;
     cursor: pointer;
     font-size: 1.2em;
-    margin-left: 10px;
+    margin-right: 20px;
 }
 
 .logout-btn:hover {
