@@ -1,26 +1,25 @@
-
-
-// Obtener la modal y el botón que abre la modal
-var modal = document.getElementById("userListModal");
-var btn = document.querySelector(".circular-button");
+// Modal de lista de usuarios
+var userListModal = document.getElementById("userListModal");
+var userListBtn = document.querySelector(".circular-button");
 
 // Cuando el usuario haga clic en el botón, muestra la modal
-btn.onclick = function() {
-    modal.style.display = "block";
+userListBtn.onclick = function() {
+    userListModal.style.display = "block";
 }
 
 // Cuando el usuario haga clic en el botón de cierre (x), cierra la modal
-var closeBtn = document.getElementsByClassName("close")[0];
-closeBtn.onclick = function() {
-    modal.style.display = "none";
+var userListCloseBtn = document.querySelector("#userListModal .close");
+userListCloseBtn.onclick = function() {
+    userListModal.style.display = "none";
 }
 
 // Cuando el usuario haga clic fuera de la modal, también ciérrala
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    if (event.target == userListModal) {
+        userListModal.style.display = "none";
     }
 }
+
 // Obtener la lista de usuarios
 var userList = document.querySelectorAll("#userListModal ul li");
 
@@ -36,42 +35,43 @@ userList.forEach(function(user) {
         user.classList.add("clicked");
         
         // Cerrar la modal
-        var modal = document.getElementById("userListModal");
-        modal.style.display = "none";
+        userListModal.style.display = "none";
         
         // Mostrar el alert después de cerrar la modal
-        alert("Usuario seleccionado: " + user.textContent);
+        setTimeout(function() {
+            alert("Usuario seleccionado: " + user.textContent);
+        }, 300);
         
         // Aquí puedes agregar cualquier otra lógica que desees ejecutar después de seleccionar un usuario
         // Por ejemplo, abrir un chat con ese usuario, etc.
     });
 });
 
-//------------------------------------------------modal 2--------------------------------
+// Modal del perfil de usuario
 document.addEventListener("DOMContentLoaded", function() {
     // Obtener la modal y el botón que abre la modal
-    var modal = document.getElementById("profileModal");
-    var btn = document.getElementById("openProfileModal");
-    var closeBtn = document.getElementsByClassName("close")[0];
+    var profileModal = document.getElementById("profileModal");
+    var profileBtn = document.getElementById("openProfileModal");
+    var profileCloseBtn = document.querySelector("#profileModal .close");
     var changeProfilePicBtn = document.getElementById("changeProfilePicBtn");
     var profilePicInput = document.getElementById("profilePicInput");
     var profileImage = document.getElementById("profileImage");
     var saveProfileBtn = document.getElementById("saveProfileBtn");
 
     // Cuando el usuario haga clic en el botón, muestra la modal
-    btn.onclick = function() {
-        modal.style.display = "block";
+    profileBtn.onclick = function() {
+        profileModal.style.display = "block";
     }
 
     // Cuando el usuario haga clic en el botón de cierre (x), cierra la modal
-    closeBtn.onclick = function() {
-        modal.style.display = "none";
+    profileCloseBtn.onclick = function() {
+        profileModal.style.display = "none";
     }
 
     // Cuando el usuario haga clic fuera de la modal, también ciérrala
     window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+        if (event.target == profileModal) {
+            profileModal.style.display = "none";
         }
     }
 
@@ -98,8 +98,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         alert("Perfil actualizado correctamente");
 
-        modal.style.display = "none";
+        profileModal.style.display = "none";
     }
 });
-
-
