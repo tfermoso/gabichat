@@ -526,3 +526,31 @@ body {
 .group-info p {
     color: #888;
 }
+.group-name-input {
+    margin-top: 20px;
+}
+
+.group-name-input input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.send-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.send-btn:hover {
+    background-color: #0056b3;
+}
