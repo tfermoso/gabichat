@@ -468,7 +468,7 @@ body {
 }
 
 .modal-content2 {
-    background-color: #fefefe;
+    background-color: #333333;
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
@@ -553,4 +553,11 @@ body {
 
 .send-btn:hover {
     background-color: #0056b3;
+}
+
+.group-title {
+    background-color: #00bfff;
+    color: white;
+    padding: 10px;
+    text-align: center;
 }
