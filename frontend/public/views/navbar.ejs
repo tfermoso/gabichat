@@ -24,27 +24,29 @@
         </div>
     </nav>
 
-    <!-- Modal para Mi Perfil -->
-    <div id="profileModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Mi Perfil</h2>
-            <div class="profile-picture">
-                <img id="profileImage" src="path_to_default_image.jpg" alt="Foto de Perfil">
-            </div>
-            <button id="changeProfilePicBtn">Cambiar Foto de Perfil</button>
-            <input type="file" id="profilePicInput" style="display: none;">
-            <div class="profile-details">
-                <label for="profileName">Nombre:</label>
-                <input type="text" id="profileName" value="Nombre actual">
-                <label for="profileEmail">Email:</label>
-                <input type="email" id="profileEmail" value="Email actual">
-                <label for="profilePassword">Contraseña:</label>
-                <input type="password" id="profilePassword" value="Contraseña actual">
-            </div>
-            <button id="saveProfileBtn">Guardar Cambios</button>
+  
+<!-- Modal para Mi Perfil -->
+<div id="profileModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Mi Perfil</h2>
+        <div class="profile-picture">
+            <img id="profileImage" src="path_to_default_image.jpg" alt="Foto de Perfil">
         </div>
+        <button id="changeProfilePicBtn" class="change-profile-pic-btn">Cambiar Foto de Perfil</button>
+        <input type="file" id="profilePicInput" style="display: none;">
+        <div class="profile-details">
+            <label for="profileName">Nombre:</label>
+            <input type="text" id="profileName" value="Nombre actual">
+            <label for="profileEmail">Email:</label>
+            <input type="email" id="profileEmail" value="Email actual">
+            <label for="profilePassword">Contraseña:</label>
+            <input type="password" id="profilePassword" value="Contraseña actual">
+        </div>
+        <button id="saveProfileBtn" class="save-profile-btn">Guardar Cambios</button>
     </div>
+</div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-afZRd1iNXm47F4xncsc5xlMcK7Ay+zAMFmLZyfc8v8NTmH/4h+2h+YGg2ywwuBgC" crossorigin="anonymous"></script>
     <script src="/socket.io/socket.io.js"></script>

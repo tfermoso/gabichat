@@ -357,3 +357,98 @@ body {
     font-size: 0.8em; /* Adjust the font size as needed */
     color: #d1cfcf; /* Adjust the color as needed */
 }
+
+/* -----------------------------------MODAL 2-----------------------------
+/* Estilos para la modal */
+.modal {
+    display: none; /* Ocultar por defecto */
+    position: fixed; /* Mantener fija */
+    z-index: 1; /* Estar por encima */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    overflow: auto; /* Permitir scroll si es necesario */
+    background-color: rgb(0,0,0); /* Color de fondo */
+    background-color: rgba(0,0,0,0.4); /* Color de fondo con opacidad */
+}
+
+.modal-content {
+    background-color: #333333;
+    margin: 15% auto; /* Centramos verticalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho */
+    max-width: 500px; /* Máximo ancho */
+    color: white; /* Color de texto blanco */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.profile-picture {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.profile-details label {
+    display: block;
+    margin-top: 10px;
+}
+
+.profile-details input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Botones personalizados */
+.change-profile-pic-btn,
+.save-profile-btn {
+    background-color: #007bff; /* Azul */
+    color: white; /* Letras blancas */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Centrar texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Para el margin y padding */
+    font-size: 16px; /* Tamaño de fuente */
+    margin-top: 10px; /* Margen superior */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor a mano */
+}
+
+.change-profile-pic-btn:hover,
+.save-profile-btn:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+}
+
+/* Ajustes adicionales */
+.modal-content .profile-picture {
+    margin-bottom: 20px;
+}
+
+.modal-content .profile-details {
+    margin-top: 20px;
+}
