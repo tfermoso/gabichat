@@ -101,3 +101,66 @@ document.addEventListener("DOMContentLoaded", function() {
         profileModal.style.display = "none";
     }
 });
+
+// modal de grupos
+// Obtener la modal y el botón de cierre
+var btnCreateGroupModal = document.getElementById("btnCreateGroupModal");
+var createGroupModal = document.getElementById("createGroupModal");
+var closeCreateGroupBtn = document.querySelector("#createGroupModal .close2");
+
+// Función para abrir la modal
+function openCreateGroupModal() {
+    createGroupModal.style.display = "block";
+}
+
+// Función para cerrar la modal
+function closeCreateGroupModal() {
+    createGroupModal.style.display = "none";
+}
+
+btnCreateGroupModal.onclick= function(){
+    openCreateGroupModal();
+}
+
+// Evento de clic en el botón de cierre
+closeCreateGroupBtn.onclick = function() {
+    closeCreateGroupModal();
+}
+
+// Evento de clic fuera de la modal para cerrarla
+window.onclick = function(event) {
+    if (event.target == createGroupModal) {
+        closeCreateGroupModal();
+    }
+}
+
+// Obtener los botones de añadir usuario
+var addUserBtns = document.querySelectorAll(".add-user-btn");
+
+// Agregar evento de clic a cada botón de añadir usuario
+addUserBtns.forEach(function(btn) {
+    btn.addEventListener("click", function() {
+        // Aquí puedes agregar la lógica para añadir un usuario al grupo
+        console.log("Añadir usuario al grupo");
+    });
+});
+
+// Obtener el botón de enviar (crear grupo)
+var sendBtn = document.querySelector(".send-btn");
+
+// Agregar evento de clic al botón de enviar
+sendBtn.addEventListener("click", function() {
+    // Aquí puedes agregar la lógica para enviar el grupo
+    console.log("Enviar (Crear grupo)");
+});
+
+// Obtener el botón de más grupos
+var addGroupBtn = document.querySelector(".add-group");
+
+// Agregar evento de clic al botón de más grupos
+addGroupBtn.addEventListener("click", function() {
+    openCreateGroupModal();
+});
+
+
+
