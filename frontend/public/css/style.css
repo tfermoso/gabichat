@@ -469,10 +469,13 @@ body {
 
 .modal-content2 {
     background-color: #333333;
-    margin: 10% auto;
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+	max-width: 700px; /* Máximo ancho */
+    color: white; /* Color de texto blanco */
+    border-radius: 10px; /* Bordes redondeados */
 }
 
 .close2 {
