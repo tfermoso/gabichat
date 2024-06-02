@@ -1,27 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabichat</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-iQi6nkMT8FrC+QCHFbLaTbF0X/bjW7ju5WChbWZSwmcj7GwzrWaC2v2MZdJXIWBPXjlb68IZkxc++T05gj5uew==" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-iQi6nkMT8FrC+QCHFbLaTbF0X/bjW7ju5WChbWZSwmcj7GwzrWaC2v2MZdJXIWBPXjlb68IZkxc++T05gj5uew=="
+        crossorigin="anonymous" />
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+    <input type="hidden" id="sessionId" value="<%=id%>">
     <nav class="navbar">
         <div class="navbar-left">
             <h2>Gabichat 1.0</h2>
         </div>
         <div class="navbar-right">
             <div class="dropdown">
-                <button class="dropbtn">Sofía</button>
+                <button class="dropbtn" id="profileBtn"><%= username %></button>
                 <div class="dropdown-content">
-                    <a href="#">Estado 1</a>
-                    <a href="#">Estado 2</a>
-                    <a href="#">Estado 3</a>
+                    <a href="#" id="openProfileModal">Mi perfil</a>
                 </div>
             </div>
             <button class="logout-btn">x</button>
         </div>
     </nav>
+
+
+    <!-- Modal para Mi Perfil -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Mi Perfil</h2>
+            <div class="profile-picture">
+                <img id="profileImage" src="uploads/<%= profile_picture %>" alt="Foto de Perfil">
+            </div>
+            <button id="changeProfilePicBtn" class="change-profile-pic-btn">Cambiar Foto de Perfil</button>
+            <input type="file" id="profilePicInput" style="display: none;">
+            <div class="profile-details">
+                <label for="profileName">Nombre:</label>
+                <input type="text" id="profileName" value="<%= username %>">
+                <label for="profileEmail">Email:</label>
+                <input type="email" id="profileEmail" value="<%= email %>">
+                <label for="profilePassword">Nueva contraseña:</label>
+                <input type="password" id="profilePassword">
+            </div>
+            <button id="saveProfileBtn" class="save-profile-btn">Guardar Cambios</button>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-afZRd1iNXm47F4xncsc5xlMcK7Ay+zAMFmLZyfc8v8NTmH/4h+2h+YGg2ywwuBgC"
+        crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/gabi.js"></script>
+</body>
+
+</html>

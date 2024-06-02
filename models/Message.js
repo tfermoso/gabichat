@@ -23,15 +23,21 @@ const Message = sequelize.define(
     },
     chat_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: "chat",
         key: "id",
       },
     },
+    group_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "group",
+        key: "id",
+      },
+    },
   },
   {
-    tableName: "group",
+    tableName: "message",
     timestamps: false,
   }
 );

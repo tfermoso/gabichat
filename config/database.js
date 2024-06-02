@@ -2,7 +2,10 @@ const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize('gabichat', 'root', '1234', {
   host: 'localhost',
-  dialect: 'mysql'
+  dialect: 'mysql',
+  define: {
+    timestamps: false,
+  },
 });
 
 (async () => {

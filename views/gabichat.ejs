@@ -1,41 +1,107 @@
 <%- include('./navbar.ejs') %>
-<div class="container">
-    <div class="chat-container">
-        <div class="cabecero">
-            <h2>GabiChat</h2>
-        </div>
-        <div class="chat-messages">
-            <!-- Aquí van los mensajes de chat -->
-            <h2>¡Empieza a chatear!</h2>
-        </div>
-        <div class="chat-input-no-va">
-            <!--no tener en cuenta esto-->
-        </div>
-    </div>
-    <div class="sidebar">
-        <div class="contacts-container">
-            <div class="contacts-header">
-                <h2>Mis chats</h2>
+    <div class="container">
+        <div class="chat-container">
+            <div class="cabecero">
+                <h2 id="userHeader">Bienvenido</h2>
             </div>
-            <!-- Aquí van los chats -->
-        </div>
-        <div class="groups-container">
-            <div class="groups-header">
-                <h2>Grupos</h2>
-                <button class="add-group">+</button>
+            <div id="messageDiv" class="chat-messages">
+                <!-- 
+                <div class="message sent">
+                    <p>Hola, ¿cómo estás?<span class="time">10:30 AM</span></p>
+                </div>
+                <div class="message received">
+                    <p>¡Hola! Estoy bien, ¿y tú?<span class="time">10:32 AM</span></p>
+                </div> -->
             </div>
-            <!-- Aquí van los grupos -->
+            <div class="chat-input">
+                <input id="messageText" type="text" placeholder="Escribe un mensaje...">
+                <button onclick="sendMessage()">Enviar</button>
+            </div>
         </div>
-    </div>
-    <div class="chat-button">
-        <button class="circular-button"><i class="fas fa-pencil-alt"></i></button>
-    </div>
-</div>
+        <div class="sidebar">
+            <div id="contacts-container" class="contacts-container">
+                <div class="contacts-header">
+                    <h2>Mis chats</h2>
+                </div>
+                
+            </div>
+            <div class="groups-container">
+                <div class="groups-header">
+                    <h2>Grupos</h2>
+                    <button id="btnCreateGroupModal" class="add-group">+</button>
+                </div>
+                <!--<div class="group">
+                    <div class="avatar">G</div>
+                    <div class="group-info">
+                        <h3>Gabimaníacos</h3>
+                        <p>El chat se me ha roto...</p>
+                    </div>
+                    <div class="group-time">10:30 AM</div>
+                </div>
+                <div class="group">
+                    <div class="avatar">T</div>
+                    <div class="group-info">
+                        <h3>Tech Enthusiasts</h3>
+                        <p>Reunión mañana a las 9 AM...</p>
+                    </div>
+                    <div class="group-time">10:32 AM</div>
+                </div>
+                <div class="group">
+                    <div class="avatar">C</div>
+                    <div class="group-info">
+                        <h3>Ceica</h3>
+                        <p>El 13 nos vamos de parranda!!</p>
+                    </div>
+                    <div class="group-time">9:15 AM</div>
+                </div>-->
+            </div>
+        </div>
+        <div class="chat-button">
+            <button class="circular-button"><span>+</span></button>
+        </div>
 
-<!-- Scripts opcionales de Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-afZRd1iNXm47F4xncsc5xlMcK7Ay+zAMFmLZyfc8v8NTmH/4h+2h+YGg2ywwuBgC" crossorigin="anonymous"></script>
-<script src="/socket.io/socket.io.js"></script>
-<script src="js/gabi.js"></script>
-<script src="js/gabisocket.js"></script>
-</body>
-</html>
+        <!-- Modal -->
+        <div id="userListModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Lista de Usuarios</h2>
+                <ul id="userList">
+                    <!-- Lista de usuarios -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de grupo -->
+    <div id="createGroupModal" class="modal2">
+        <div class="modal-content2">
+            <span class="close2">&times;</span>
+            <div id="groupsContainer" class="groups-container">
+                <!-- Contenido de la modal aquí -->
+                <h2 class="group-title">Nuevo Grupo</h2> <!-- Título del grupo -->
+                <!--
+                <div class="group">
+                    <div class="avatar">U</div>
+                    <div class="group-info">
+                        <h3>Usuario 3</h3>
+                        <p>Descripción del usuario...</p>
+                    </div>
+                    <div class="add-user-btn">+</div>
+                </div>-->
+                <div id="groupNameInput" class="group-name-input">
+                    <input id="groupName" type="text" placeholder="Nombre del grupo" required>
+                </div>
+                <button onclick="newGroup()" class="send-btn">Enviar (Crear Grupo)</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Scripts opcionales de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-afZRd1iNXm47F4xncsc5xlMcK7Ay+zAMFmLZyfc8v8NTmH/4h+2h+YGg2ywwuBgC"
+        crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/gabi.js"></script>
+    <script src="js/gabisocket.js"></script>
+    </body>
+
+    </html>
