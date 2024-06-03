@@ -1,4 +1,4 @@
-const { Chat, Message, User, Group } = require('../models/Associations');
+const { Chat, Message, User, Group,Group_participant } = require('../models/Associations');
 const sequelize = require("../config/database");
 
 let onlineUsers = [];

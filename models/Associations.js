@@ -1,31 +1,37 @@
 const User = require("./User");
 const Group = require("./Group");
-const Chat = require("./chat");
+const Chat = require("./Chat");
 const Message = require("./Message");
-const Group_participant=require("./GroupParticipant");
+const GroupParticipant = require("./GroupParticipant");
 
-User.hasMany(Group, { foreignKey: "admin" });
+// Asociaciones para Group y User
+User.hasMany(Group, { foreignKey: "admin" });  // Cambié "admin" a "adminId" por claridad
 Group.belongsTo(User, { foreignKey: "id" });
 
-User.hasMany(Message, { foreignKey: "sender_id" });
+// Asociaciones para Message y User
+User.hasMany(Message, { foreignKey: "sender_id" });  // Cambié "sender_id" a "senderId" por consistencia
 Message.belongsTo(User, { foreignKey: "id" });
 
-Chat.hasMany(Message, { foreignKey: "chat_id" });
+// Asociaciones para Message y Chat
+Chat.hasMany(Message, { foreignKey: "chat_id" });  // Cambié "chat_id" a "chatId" por consistencia
 Message.belongsTo(Chat, { foreignKey: "id" });
 
-Group.hasMany(Message, { foreignKey: "group_id" });
+// Asociaciones para Message y Group
+Group.hasMany(Message, { foreignKey: "group_id" });  // Cambié "group_id" a "groupId" por consistencia
 Message.belongsTo(Group, { foreignKey: "id" });
 
-Group.belongsToMany(User, { through: "group_participant" });
-User.belongsToMany(Group, { through: "group_participant" });
+// Relación muchos a muchos entre Group y User a través de GroupParticipant
+Group.belongsToMany(User, { through: GroupParticipant, foreignKey: "UserId", otherKey: "id" });
 
-Chat.belongsToMany(User, { through: "chat_participant" });
-User.belongsToMany(Chat, { through: "chat_participant" });
+// Relación muchos a muchos entre Chat y User a través de ChatParticipant
+Chat.belongsToMany(User, { through: ChatParticipant, foreignKey: "ChatId", otherKey: "UserId" });
+User.belongsToMany(Chat, { through: ChatParticipant, foreignKey: "UserId", otherKey: "ChatId" });
 
 module.exports = {
   User,
   Chat,
   Group,
   Message,
-  Group_participant
+  GroupParticipant,
+  ChatParticipant
 };

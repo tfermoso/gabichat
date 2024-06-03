@@ -16,7 +16,9 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id'
         }
       }
-    }, {});
+    }, {
+        tableName: 'group_participant'
+    });
   
     return GroupParticipant;
   };
