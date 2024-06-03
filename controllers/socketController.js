@@ -72,12 +72,17 @@ module.exports = (io) => {
     })
 
     socket.on('newGroup', async (data) => {
-      const group = await Group.create({ name: data.groupName, admin: id });
-      for (const user of data.users) {
-        await Group_participant.create({ group_id: group.id, user_id: user });
+      try {
+        const group = await Group.create({ name: data.groupName, admin: id });
+        for (const user of data.users) {
+          await Group_participant.create({ GroupId: group.id, UserId: user });
+        }
+        const groups = await getAllGroupsWithLastMessage();
+        io.emit('refreshGroupList', { groups });
+      } catch (error) {
+        console.log(error);
       }
-      const groups = await getAllGroupsWithLastMessage();
-      io.emit('refreshGroupList', { groups });
+     
     })
 
   });

@@ -2,6 +2,7 @@ const User = require("./User");
 const Group = require("./Group");
 const Chat = require("./chat");
 const Message = require("./Message");
+const Group_participant=require("./GroupParticipant");
 
 User.hasMany(Group, { foreignKey: "admin" });
 Group.belongsTo(User, { foreignKey: "id" });
@@ -25,5 +26,6 @@ module.exports = {
   User,
   Chat,
   Group,
-  Message
+  Message,
+  Group_participant
 };

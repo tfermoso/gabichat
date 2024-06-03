@@ -205,7 +205,7 @@ function addIdToGroup(id) {
 }
 
 function newGroup() {
-    const groupName = document.getElementById('groupName');
+    const groupName = document.getElementById('groupName').value;
     if(groupList.length == 0){
         alert('Se necesita al menos una persona');
     } else {
